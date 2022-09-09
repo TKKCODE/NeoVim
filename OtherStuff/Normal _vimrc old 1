@@ -1,0 +1,107 @@
+"syntax
+syntax on
+
+"filetypes
+filetype on
+
+filetype plugin on
+
+filetype indent on
+
+""settings
+set nu
+set rnu
+set ai
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set noerrorbells
+set noswapfile
+set nobackup
+set nocompatible
+set splitright
+set showcmd
+set wrap
+set wrapmargin=50
+set showmatch
+set hlsearch
+set incsearch
+set wildmenu
+set wildignore:*.docx,*.jpg,*.pdf
+set laststatus=2
+set foldenable
+set foldmethod=indent
+set mouse=a
+set backspace=indent,eol,start
+set shell=/bin/bash
+set termguicolors
+set t_Co=256
+
+
+""fontsettings
+
+if has('gui_running')
+	"set guifont=Consolas:h16:cANSI:qDRAFT
+	set guifont=FiraCode_Nerd_Font_Mono_:h17
+	"set guifont=Cascadia_Code:h16:cANSI:qDRAFT
+	"set guifont=Monospace\ 17	
+endif
+
+
+"mappings"
+
+
+nnoremap <C-s> :w <CR>
+nnoremap <C-o> :e Desktop/a/a.cpp <CR>
+nnoremap <C-n> :tabnew  <CR>
+nnoremap <C-w> :q! <CR>
+nnoremap <C-q> :bd <CR>
+nnoremap <C-Up> :tabnext <CR>
+nnoremap <C-Down> :tabprevious <CR>
+nnoremap <C-Right> :bnext <CR>
+nnoremap <C-Left> :bprevious <CR>
+nnoremap <C-z> :undo <CR>
+nnoremap <C-r> :redo <CR>
+nnoremap <C-Up> :tabnext <CR>
+nnoremap <A-q> :exit<CR>
+
+nnoremap <A-o> :tabnew _vimrc <CR>
+nnoremap <F2> :cd ~/Desktop/a<CR>
+nnoremap <F3> :cd ~/Desktop/a/algo<CR>
+
+autocmd filetype vim nnoremap <F8> :so %<CR>
+
+autocmd filetype cpp nnoremap <F5> :w <CR> :!g++ -o %:r % -std=c++14 && ./%:r<Enter>
+
+autocmd filetype cpp nnoremap <F6> :w <CR> :!g++ -o %:r % -std=c++14 && ./%:r & gedit ~/Desktop/a/out.txt<Enter>
+
+autocmd BufNewFile *.cpp 0r H:/Cp/temp.cpp 
+
+
+
+call plug#begin()
+	Plug 'jiangmiao/auto-pairs'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
+	Plug 'SirVer/ultisnips'
+	Plug 'honza/vim-snippets'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'morhetz/gruvbox'
+call plug#end()
+
+colorscheme gruvbox
+set background=dark
+
+" vim plug
+let g:airline_section_b = '%{strftime("%c")}'
+"let g:airline_section_b = '%{StatusDiagnostic()}'
+
+
+"Snips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+

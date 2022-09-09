@@ -1,0 +1,84 @@
+"syntax
+syntax on
+
+"filetypes
+filetype on
+
+filetype plugin on
+
+filetype indent on
+
+""settings
+set nu
+set rnu
+set ai
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set noerrorbells
+set noswapfile
+set nobackup
+set nocompatible
+set splitright
+set showcmd
+set wrap
+set wrapmargin=50
+set showmatch
+set hlsearch
+set incsearch
+set wildmenu
+set wildignore:*.docx,*.jpg,*.pdf
+set laststatus=2
+set foldenable
+set foldmethod=indent
+set mouse=a
+set backspace=indent,eol,start
+set termguicolors
+set t_Co=256
+
+
+""fontsettings
+
+if has('gui_running')
+	"set guifont=Consolas:h16:cANSI:qDRAFT
+	set guifont=FiraCode_Nerd_Font_Mono:h15
+	"set guifont=Cascadia_Code:h16:cANSI:qDRAFT
+	"set guifont=Monospace\ 17	
+endif
+
+
+"mappings"
+
+
+nnoremap <C-s> :w <CR>
+nnoremap <C-n> :tabnew  <CR>
+nnoremap <C-q> :bd! <CR>
+nnoremap <C-k> :tabnext <CR>
+nnoremap <C-j> :tabprevious <CR>
+nnoremap <C-l> :bnext <CR>
+nnoremap <C-h> :bprevious <CR>
+nnoremap <C-z> :undo <CR>
+nnoremap <C-r> :redo <CR>
+nnoremap <A-q> :exit<CR>
+
+nnoremap <A-o> :tabnew _vimrc <CR>
+nnoremap <F2> :cd C:/Users/Kiran/Desktop/Github/My_cpp<CR>
+nnoremap <F3> :cd C:/Users/Kiran/Desktop/Github/My_Cpp/algo<CR>
+nnoremap <F4> :cd C:/Users/Kiran/Desktop/Github/My_Cpp/CodeForces<CR>
+
+autocmd filetype vim nnoremap <F8> :so %<CR>
+
+autocmd filetype cpp nnoremap <F5> :w <CR> :!g++ -o %:r % -std=c++14 && ./%:r<Enter>
+
+autocmd filetype cpp nnoremap <C-C> :s/^\(\s*\)/\1\/\/<CR> :s/^\(\s*\)\/\/\/\//\1<CR>
+
+autocmd BufNewFile *.cpp 0r C:/Users/Kiran/Desktop/Github/My_Cpp/tempvim.cpp 
+call plug#begin()
+	Plug 'jiangmiao/auto-pairs'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'morhetz/gruvbox'
+call plug#end()
+
+
